@@ -7,6 +7,7 @@ Anticipation for Youtube hides the video time and progress bar on Youtube, along
 
 Anticipation is useful when watching sports or other types of competitions when the amount of time left might give away the result of the sport, match, or competition.
 
+https://chrome.google.com/webstore/detail/anticipation-for-youtube/gnijgfamanlebomemfebpndnnbbpcijl
 
 Safari Version
 --------------
