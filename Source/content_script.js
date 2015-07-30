@@ -18,16 +18,13 @@ function hideTimes(){
 			var vidTime = times[i];
 			vidTime.textContent="Time Hidden";
 		}
-		times = document.getElementsByClassName("ytp-time-display html5-control")
+		times = document.getElementsByClassName("ytp-time-duration")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
-			var par1 = vidTime.parentNode.removeChild(vidTime);
-			i--;
-		}
-		times = document.getElementsByClassName("ytp-time-display")
-		for(i = 0; i < times.length; i++){
-			var vidTime = times[i];
-			var par1 = vidTime.parentNode.removeChild(vidTime);
+			var par1 = vidTime.parentNode
+			par1.removeChild(vidTime);
+			var repText = document.createTextNode("Time hidden by Anticipation");
+		 	par1.appendChild(repText);
 			i--;
 		}
 		times = document.getElementsByClassName("ytp-progress-bar-container")
