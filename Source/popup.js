@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       setIconEnabled();
       settings.set('enabled', true)
-      var text = document.createTextNode('Anticipation is enabled, YouTube time will be hidden on the next video you click on or after refreshing your tab.')
+      var text = document.createTextNode('Anticipation is enabled, YouTube time will be hidden on the next video you click on or after refreshing your tab. You can use your keyboard arrow keys to rewind and fast forward if needed.')
     }
     $('#message').html(text);
 })
