@@ -1,6 +1,8 @@
 Anticipation for YouTube
 =============
 
+![](Screenshot.png)
+
 Hides video time on YouTube
 
 Anticipation for Youtube hides the video time and progress bar on Youtube, along with the times of related videos on the page, so the user does not know how much time is left in a video.
