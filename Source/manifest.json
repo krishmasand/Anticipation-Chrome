@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Anticipation for YouTube",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "Hides video time on YouTube",
 	"background": {
         "persistent":true,

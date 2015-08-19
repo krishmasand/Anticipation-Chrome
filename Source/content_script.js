@@ -6,10 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 (document.body || document.documentElement).addEventListener('transitionend',
   function(/*TransitionEvent*/ event) {
-    if (event.propertyName === 'width' && event.target.id === 'progress') {
-    	window.onload = function () { hideTimes(); }
-        hideTimes();
-    }
+    hideTimes();
 }, true);
 
 function hideTimes(){
@@ -24,6 +21,15 @@ function hideTimes(){
 			var par1 = vidTime.parentNode
 			par1.removeChild(vidTime);
 			var repText = document.createTextNode("Time hidden by Anticipation");
+		 	par1.appendChild(repText);
+			i--;
+		}
+		times = document.getElementsByClassName("timestamp")
+		for(i = 0; i < times.length; i++){
+			var vidTime = times[i];
+			var par1 = vidTime.parentNode
+			par1.removeChild(vidTime);
+			var repText = document.createTextNode("Time hidden by Anticipation for YouTube");
 		 	par1.appendChild(repText);
 			i--;
 		}
