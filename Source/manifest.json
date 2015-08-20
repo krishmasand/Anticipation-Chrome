@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Anticipation for YouTube",
 	"version": "1.0.6.1",
-	"description": "Hides the YouTube video time, progress bar, and the times of related videos to prevent spoilers - especially useful for sports videos.",
+	"description": "Hides the YouTube video time, progress bar, & the times of related videos to prevent spoilers - especially useful for sports videos",
 	"background": {
         "persistent":true,
         "scripts": ["fancy-settings/source/lib/store.js", "background.js"]
