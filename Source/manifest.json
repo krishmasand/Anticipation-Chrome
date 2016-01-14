@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Anticipation for YouTube and Twitch",
 	"version": "1.1.0",
-	"description": "Hides YouTube and Twitch video lengths, progress bar, & the times of related videos to prevent spoilers - especially useful for sports videos",
+	"description": "Hides YouTube & Twitch video lengths, progress bar, & times of related videos to prevent spoilers - very useful for sports videos",
 	"background": {
         "persistent":true,
         "scripts": ["fancy-settings/source/lib/store.js", "background.js"]
