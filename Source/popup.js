@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (settings.get('enabled')) {
       setIconDisabled();
       settings.set('enabled', false)
-      var text = document.createTextNode('Anticipation is disabled, YouTube time will be shown. Refresh your tab if you are already on YouTube.')
+      var text = document.createTextNode('Anticipation is disabled, YouTube and Twitch time will be shown. Refresh your tab if you are already on YouTube or Twitch.')
     } else {
       setIconEnabled();
       settings.set('enabled', true)
-      var text = document.createTextNode('Anticipation is enabled, YouTube time will be hidden on the next video you click on or after refreshing your tab. You can use your keyboard arrow keys to rewind and fast forward if needed.')
+      var text = document.createTextNode('Anticipation is enabled, YouTube and Twitch time will be hidden on the next video you click on or after refreshing your tab. You can use your keyboard arrow keys to rewind and fast forward if needed.')
     }
     $('#message').html(text);
 })
