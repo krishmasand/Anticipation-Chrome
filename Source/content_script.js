@@ -61,5 +61,14 @@ function hideTimes(){
 			var vidTime = times[i];
 			vidTime.textContent="Time Hidden by Anticipation";
 		}
+		var times = document.getElementsByClassName("info")
+		for(i = 0; i < times.length; i++){
+			var vidTime = times[i];
+			var text = vidTime.textContent
+			var timeBool = (text.indexOf(":") > -1);
+			if(timeBool){
+				vidTime.textContent="Time Hidden";
+			}
+		}
 	}
 }
