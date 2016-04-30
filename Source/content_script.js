@@ -19,6 +19,11 @@ function hideTimes(){
 			var vidTime = times[i];
 			vidTime.textContent="Time Hidden";
 		}
+		var times = document.getElementsByClassName("videowall-still-info-duration")
+		for (i = 0; i < times.length; i++) {
+		    var vidTime = times[i];
+		    vidTime.textContent = "Time Hidden";
+		}
 		times = document.getElementsByClassName("ytp-time-duration")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
