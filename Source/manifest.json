@@ -17,9 +17,9 @@
         "128": "icon128.png"
   	},
 	"permissions": [
-        "http://www.youtube.com/*",
-        "https://www.youtube.com/*",
-        "https://www.twitch.tv/*",
-        "http://www.twitch.tv/*"
+        "http://*.youtube.com/*",
+        "https://*.youtube.com/*",
+        "https://*.twitch.tv/*",
+        "http://*.twitch.tv/*"
     ]
 }
