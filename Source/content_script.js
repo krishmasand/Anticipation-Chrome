@@ -1,16 +1,62 @@
+var enabled = false;
+var leffen = false;
+chrome.runtime.sendMessage({method: "enabled"}, function(response) {
+  //for possible ideas/improvements for YouTube/Twitch extension integration
+  	enabled = response.data;
+  	leffen = response.lef;
+
+	chrome.runtime.sendMessage({method: "getGuid", url: window.location.href, page: document.title, enabled: enabled}, function(response) {
+	  	var guid = response.data;
+		if(document.title != "YouTube" && document.title != "Twitch" && response.parse){
+			//on a video page
+		}
+	});
+
+});
+
 var twitch = false;
 var url = window.location.href;
 twitch = (url.indexOf("twitch.tv") > -1);
-hideTimes();
+
+//reset for awareness
+url = " ";
+
+if(enabled) hideTimes();
+//if(leffen && (Date.now() < (new Date('2016-06-02').getTime()))) awareness();
 
 document.addEventListener('DOMContentLoaded', function() {
-	hideTimes();
+	if(enabled) hideTimes();
+	if(leffen && (Date.now() < (new Date('2016-06-02').getTime()))) awareness();
 });
 
 (document.body || document.documentElement).addEventListener('transitionend',
   function(/*TransitionEvent*/ event) {
-    hideTimes();
+  	if(enabled) hideTimes();
+  	if(leffen && (Date.now() < (new Date('2016-06-02').getTime()))) awareness();
 }, true);
+
+//awareness about Leffen visa situation
+function awareness(){
+	if(window.location.href == url){
+		//do nothing
+	}
+	else{
+		url = window.location.href;
+
+		var titleElem = document.getElementById("eow-title");
+		var title = titleElem.textContent;
+
+		var div=document.createElement("div"); 
+		//titleElem.parentNode.appendChild(div); 
+		var cont = document.getElementById("watch8-action-buttons");
+		cont.appendChild(div);
+		div.innerText="test123";
+		alert(title);
+
+
+	}
+
+}
 
 function hideTimes(){
 	if(!twitch){
@@ -45,18 +91,18 @@ function hideTimes(){
 		}
 	}
 	else{
-		var times = document.getElementsByClassName("player-seek__time player-seek__time--total js-seek-totaltime")
+		var times = document.getElementsByClassName("player-seek__time player-seek__time--total")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
 			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch";
 		}
-		var times = document.getElementsByClassName("player-slider player-slider--roundhandle js-seek-slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all")
+		var times = document.getElementsByClassName("player-slider player-slider--roundhandle js-player-slider")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
 			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch - Use Arrow Keys to seek";
 			vidTime.style.textAlign = "center";
 		}
-		var times = document.getElementsByClassName("overlay_info length")
+		var times = document.getElementsByClassName("card__meta card__meta--right")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
 			vidTime.textContent="Time Hidden by Anticipation";
