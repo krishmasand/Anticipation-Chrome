@@ -16,12 +16,12 @@ if (settings.get('guid')) {
 
 //Listen for when a Tab changes state
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
-    chrome.tabs.executeScript(tab.id, {file:"content_script.js"});
+    chrome.tabs.executeScript(tab.id, {file:"content_script.js", allFrames:true});
   if(changeInfo && changeInfo.status == "complete"){
       chrome.tabs.sendMessage(tabId, {data: tab}, function(response) {
-          console.log(response);
+          // console.log(response);
 
-        chrome.tabs.executeScript(tab.id, {file:"content_script.js"});
+        chrome.tabs.executeScript(tab.id, {file:"content_script.js", allFrames:true});
 
       });
   }
