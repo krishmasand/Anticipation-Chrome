@@ -1,15 +1,23 @@
+var enabled = false;
+chrome.runtime.sendMessage({method: "enabled"}, function(response) {
+  	enabled = response.data;
+});
+
 var twitch = false;
 var url = window.location.href;
 twitch = (url.indexOf("twitch.tv") > -1);
-hideTimes();
+
+url = " ";
+
+if(enabled) hideTimes();
 
 document.addEventListener('DOMContentLoaded', function() {
-	hideTimes();
+	if(enabled) hideTimes();
 });
 
 (document.body || document.documentElement).addEventListener('transitionend',
   function(/*TransitionEvent*/ event) {
-    hideTimes();
+  	if(enabled) hideTimes();
 }, true);
 
 function hideTimes(){
@@ -60,18 +68,19 @@ function hideTimes(){
 		}
 	}
 	else{
-		var times = document.getElementsByClassName("player-seek__time player-seek__time--total js-seek-totaltime")
-		for(i = 0; i < times.length; i++){
-			var vidTime = times[i];
-			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch";
-		}
-		var times = document.getElementsByClassName("player-slider player-slider--roundhandle js-seek-slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all")
+		var times = document.getElementsByClassName("player-seek__time player-seek__time--total")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
 			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch - Use Arrow Keys to seek";
-			vidTime.style.textAlign = "center";
 		}
-		var times = document.getElementsByClassName("overlay_info length")
+		var times = document.getElementsByClassName("player-slider player-slider--roundhandle js-player-slider")
+		for(i = 0; i < times.length; i++){
+			var vidTime = times[i];
+			var par1 = vidTime.parentNode
+			par1.removeChild(vidTime);
+			i--;
+		}
+		var times = document.getElementsByClassName("card__meta card__meta--right")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
 			vidTime.textContent="Time Hidden by Anticipation";
