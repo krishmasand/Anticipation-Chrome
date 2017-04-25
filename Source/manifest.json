@@ -20,7 +20,7 @@
         "http://*.youtube.com/*",
         "https://*.youtube.com/*",
         "https://*.twitch.tv/*",
-        "http://*.twitch.tv/*"
+        "http://*.twitch.tv/*",
         "https://vods.co/*",
         "http://vods.co/*"
     ]
