@@ -94,13 +94,14 @@ function hideTimes(){
 		var times = document.getElementsByClassName("player-seek__time player-seek__time--total")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
-			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch";
+			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch - Use Arrow Keys to seek";
 		}
 		var times = document.getElementsByClassName("player-slider player-slider--roundhandle js-player-slider")
 		for(i = 0; i < times.length; i++){
 			var vidTime = times[i];
-			vidTime.textContent="Time Hidden by Anticipation for YouTube and Twitch - Use Arrow Keys to seek";
-			vidTime.style.textAlign = "center";
+			var par1 = vidTime.parentNode
+			par1.removeChild(vidTime);
+			i--;
 		}
 		var times = document.getElementsByClassName("card__meta card__meta--right")
 		for(i = 0; i < times.length; i++){
