@@ -1,4 +1,4 @@
-var settings = new Store('settings', {'enabled': false, 'leffen': true, 'guid': false, 'page': false, 'url': false, 'prevEnabled': 1})
+var settings = new Store('settings', {'enabled': false, 'guid': false, 'page': false, 'url': false, 'prevEnabled': 1})
 
 if (settings.get('enabled')) {
   setIconEnabled();
@@ -28,26 +28,14 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
 });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.method == "getGuid"){
-		var parse = false;
-		if(request.page == settings.get('page') && request.url == settings.get('url') && request.enabled == settings.get('prevEnabled')){
-			parse = false;
-		}
-		else{
-			settings.set('prevEnabled', request.enabled);
-			settings.set('page', request.page);
-			settings.set('url', request.url);
-			parse = true;
-		}
-  		sendResponse({data: guid, parse: parse});
-	}
-	else if (request.method == "enabled"){
-		sendResponse({data: settings.get('enabled'), lef: settings.get('leffen')});
+  if (request.method == "enabled"){
+		sendResponse({data: settings.get('enabled')});
 	}
     else
       sendResponse({}); // snub them.
 });
 
+//Unique userid - not currently used anywhere
 function guidMake() {
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
