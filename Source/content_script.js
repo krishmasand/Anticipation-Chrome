@@ -27,6 +27,11 @@ function hideTimes(){
 			var vidTime = times[i];
 			vidTime.textContent="Time Hidden";
 		}
+        times = document.getElementsByClassName("style-scope ytd-thumbnail-overlay-time-status-renderer")
+        for (i = 0; i < times.length; i++) {
+            var vidTime = times[i];
+            vidTime.textContent = "Time Hidden";
+        }
 		times = document.getElementsByClassName("ytp-videowall-still-info-duration")
 		for (i = 0; i < times.length; i++) {
 		    var vidTime = times[i];
